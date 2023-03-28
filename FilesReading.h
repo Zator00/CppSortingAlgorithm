@@ -16,6 +16,7 @@ public:
 	void saveFile();
 	void bubble();
 	void bubbleWithoutClear();
+	void combsort();
 
 public:
 	vector<int> loadedData;

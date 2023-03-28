@@ -79,6 +79,26 @@ void File::bubbleWithoutClear() {
 	}
 }
 
+void File::combsort(){
+	bool swapper;
+    int gap = loadedData.size();
+    double shrink = 1.25;
+    int temp;
+    do {
+        gap = (int)gap / shrink;
+        if (gap < 1)
+            gap = 1;
+
+        swapper = false;
+        for (int i = 0; (i + gap) < loadedData.size(); i++) {
+            if (loadedData[i] > loadedData[i + gap]) {
+                swap(loadedData[i], loadedData[i + gap]);
+                swapper = true;
+            }
+        }
+    } while ((gap > 1) || (swapper == true));
+}
+
 void File::saveFile() {
 	ofstream file(File::savedfile);
 

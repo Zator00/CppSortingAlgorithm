@@ -12,18 +12,18 @@
 #include <map>
 #include <stdio.h>
 #include <chrono>
+#include <filesystem>
 #include "FilesReading.h"
 
 
 
 using namespace std;
-
+namespace fs = std::filesystem;
 
 
 
 int main() {
-	string path = "D:\\C++_projects\\CppSortingAlgorithm\\config.ini";
-
+	string path = fs::current_path().generic_string().append("\\config.ini") ;
 	
 	string inFile, savFile, alg, fileTime, element;
 
