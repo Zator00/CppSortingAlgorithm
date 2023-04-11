@@ -17,6 +17,9 @@ public:
 	void bubble();
 	void bubbleWithoutClear();
 	void combsort();
+	void combsortWithoutClear();
+	void countingsort();
+	void countingsortWithoutClear();
 
 public:
 	vector<int> loadedData;

@@ -74,52 +74,145 @@ int main() {
     }
 	vector<double> avgTimes;
 
-	for(int z=0; z<numsFile.size();z++ ){
+	if(fileToMod.algorithm == "bubble"){
+		for(int z=0; z<numsFile.size();z++ ){
 
-		if(z == 0){cout<<"Zmierzone i posortowane instancje: " << 0 << "/" << numsFile.size()<<endl;}
-		for(int i = 0; i<5;i++){
-			fileToMod.loadFile(z);
+			if(z == 0){cout<<"Zmierzone i posortowane instancje: " << 0 << "/" << numsFile.size()<<endl;}
+			for(int i = 0; i<5;i++){
+				fileToMod.loadFile(z);
 
-			if (fileToMod.algorithm == "bubble") {
+				if (fileToMod.algorithm == "bubble") {
 
-				if (z == numsFile.size()-1 && i==4){
-					auto begin = std::chrono::high_resolution_clock::now();
-					fileToMod.bubbleWithoutClear();
-					auto end = std::chrono::high_resolution_clock::now();
-					auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
-					sortTimes.push_back(elapsed.count() * 1e-9);
-				}else{
-					auto begin = std::chrono::high_resolution_clock::now();
-					fileToMod.bubble();
-					auto end = std::chrono::high_resolution_clock::now();
-					auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
-					sortTimes.push_back(elapsed.count() * 1e-9);
-				}
-				
-				
-			}				
-		}
-	
-		double sumTime =0;
+					if (z == numsFile.size()-1 && i==4){
+						auto begin = std::chrono::high_resolution_clock::now();
+						fileToMod.bubbleWithoutClear();
+						auto end = std::chrono::high_resolution_clock::now();
+						auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
+						sortTimes.push_back(elapsed.count() * 1e-9);
+					}else{
+						auto begin = std::chrono::high_resolution_clock::now();
+						fileToMod.bubble();
+						auto end = std::chrono::high_resolution_clock::now();
+						auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
+						sortTimes.push_back(elapsed.count() * 1e-9);
+					}
+					
+					
+				}				
+			}
 		
-		for (int i = 0; i < sortTimes.size();i++){
-			sumTime += sortTimes.at(i);
+			double sumTime =0;
+			
+			for (int i = 0; i < sortTimes.size();i++){
+				sumTime += sortTimes.at(i);
+			}
+			
+			avgTimes.push_back(sumTime/ (double)sortTimes.size());
+			sumTime = 0;
+			sortTimes.clear();
+			cout<<"Zmierzone i posortowane instancje: " << z+1 << "/" << numsFile.size()<<endl;
 		}
-		
-		avgTimes.push_back(sumTime/ (double)sortTimes.size());
-		sumTime = 0;
-		sortTimes.clear();
-		cout<<"Zmierzone i posortowane instancje: " << z+1 << "/" << numsFile.size()<<endl;
-	}
 
-	ofstream file(Filetime);
-	for(int i = 0; i < avgTimes.size();i++){
-		file << "Bubble for "<< numsFile.at(i) << " elements - avg time: " << avgTimes.at(i) << "s" << endl;
+		ofstream file(Filetime);
+		for(int i = 0; i < avgTimes.size();i++){
+			file << "Bubble for "<< numsFile.at(i) << " elements - avg time: " << avgTimes.at(i) << "s" << endl;
+		}
+		file.close();
 	}
-	file.close();
+	if(fileToMod.algorithm == "combsort"){
+			for(int z=0; z<numsFile.size();z++ ){
+
+			if(z == 0){cout<<"Zmierzone i posortowane instancje: " << 0 << "/" << numsFile.size()<<endl;}
+			for(int i = 0; i<5;i++){
+				fileToMod.loadFile(z);
+
+				if (fileToMod.algorithm == "combsort") {
+
+					if (z == numsFile.size()-1 && i==4){
+						auto begin = std::chrono::high_resolution_clock::now();
+						fileToMod.combsortWithoutClear();
+						auto end = std::chrono::high_resolution_clock::now();
+						auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
+						sortTimes.push_back(elapsed.count() * 1e-9);
+					}else{
+						auto begin = std::chrono::high_resolution_clock::now();
+						fileToMod.combsort();
+						auto end = std::chrono::high_resolution_clock::now();
+						auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
+						sortTimes.push_back(elapsed.count() * 1e-9);
+					}
+					
+					
+				}				
+			}
+		
+			double sumTime =0;
+			
+			for (int i = 0; i < sortTimes.size();i++){
+				sumTime += sortTimes.at(i);
+			}
+			
+			avgTimes.push_back(sumTime/ (double)sortTimes.size());
+			sumTime = 0;
+			sortTimes.clear();
+			cout<<"Zmierzone i posortowane instancje: " << z+1 << "/" << numsFile.size()<<endl;
+		}
+
+		ofstream file(Filetime);
+		for(int i = 0; i < avgTimes.size();i++){
+			file << "Combsort for "<< numsFile.at(i) << " elements - avg time: " << avgTimes.at(i) << "s" << endl;
+		}
+		file.close();
+
+	}
+	if(fileToMod.algorithm == "counting"){
+			for(int z=0; z<numsFile.size();z++ ){
+
+			if(z == 0){cout<<"Zmierzone i posortowane instancje: " << 0 << "/" << numsFile.size()<<endl;}
+			for(int i = 0; i<5;i++){
+				fileToMod.loadFile(z);
+
+				if (fileToMod.algorithm == "counting") {
+
+					if (z == numsFile.size()-1 && i==4){
+						auto begin = std::chrono::high_resolution_clock::now();
+						fileToMod.countingsortWithoutClear();
+						auto end = std::chrono::high_resolution_clock::now();
+						auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
+						sortTimes.push_back(elapsed.count() * 1e-9);
+					}else{
+						auto begin = std::chrono::high_resolution_clock::now();
+						fileToMod.countingsort();
+						auto end = std::chrono::high_resolution_clock::now();
+						auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
+						sortTimes.push_back(elapsed.count() * 1e-9);
+					}
+					
+					
+				}				
+			}
+		
+			double sumTime =0;
+			
+			for (int i = 0; i < sortTimes.size();i++){
+				sumTime += sortTimes.at(i);
+			}
+			
+			avgTimes.push_back(sumTime/ (double)sortTimes.size());
+			sumTime = 0;
+			sortTimes.clear();
+			cout<<"Zmierzone i posortowane instancje: " << z+1 << "/" << numsFile.size()<<endl;
+		}
+
+		ofstream file(Filetime);
+		for(int i = 0; i < avgTimes.size();i++){
+			file << "Countingsort for "<< numsFile.at(i) << " elements - avg time: " << avgTimes.at(i) << "s" << endl;
+		}
+		file.close();
+
+	}
 
 	fileToMod.saveFile();
-	
 
 	return 0;
 }

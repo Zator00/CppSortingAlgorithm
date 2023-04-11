@@ -1,9 +1,3 @@
-Bubble for 12000elements - avg time: 1.3484s
-Bubble for 15000elements - avg time: 2.23079s
-Bubble for 17000elements - avg time: 2.83112s
-Bubble for 20000elements - avg time: 4.02499s
-Bubble for 30000elements - avg time: 8.74536s
-Bubble for 40000elements - avg time: 15.2939s
-Bubble for 50000elements - avg time: 24.5549s
-Bubble for 75000elements - avg time: 55.9762s
-Bubble for 100000elements - avg time: 98.4977s
+Combsort for 10000 elements - avg time: 0.00446388s
+Combsort for 20000 elements - avg time: 0.00971334s
+Combsort for 30000 elements - avg time: 0.0159518s

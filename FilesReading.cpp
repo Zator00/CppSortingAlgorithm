@@ -5,6 +5,7 @@
 #include <sstream>
 #include <chrono>
 #include <stdio.h>
+#include <bits/stdc++.h>
 #include "FilesReading.h"
 
 using namespace std;
@@ -97,6 +98,70 @@ void File::combsort(){
             }
         }
     } while ((gap > 1) || (swapper == true));
+	loadedData.clear();
+}
+
+void File::combsortWithoutClear(){
+	bool swapper;
+    int gap = loadedData.size();
+    double shrink = 1.25;
+    int temp;
+    do {
+        gap = (int)gap / shrink;
+        if (gap < 1)
+            gap = 1;
+
+        swapper = false;
+        for (int i = 0; (i + gap) < loadedData.size(); i++) {
+            if (loadedData[i] > loadedData[i + gap]) {
+                swap(loadedData[i], loadedData[i + gap]);
+                swapper = true;
+            }
+        }
+    } while ((gap > 1) || (swapper == true));
+}
+
+void File::countingsort(){
+    int max = *max_element(loadedData.begin(), loadedData.end());
+    int min = *min_element(loadedData.begin(), loadedData.end());
+    int range = max - min + 1;
+ 
+    vector<int> count(range), output(loadedData.size());
+    for (int i = 0; i < loadedData.size(); i++)
+        count[loadedData[i] - min]++;
+ 
+    for (int i = 1; i < count.size(); i++)
+        count[i] += count[i - 1];
+ 
+    for (int i = loadedData.size() - 1; i >= 0; i--) {
+        output[count[loadedData[i] - min] - 1] = loadedData[i];
+        count[loadedData[i] - min]--;
+    }
+ 
+    for (int i = 0; i < loadedData.size(); i++)
+        loadedData[i] = output[i];
+  loadedData.clear();
+}
+
+void File::countingsortWithoutClear(){
+    int max = *max_element(loadedData.begin(), loadedData.end());
+    int min = *min_element(loadedData.begin(), loadedData.end());
+    int range = max - min + 1;
+ 
+    vector<int> count(range), output(loadedData.size());
+    for (int i = 0; i < loadedData.size(); i++)
+        count[loadedData[i] - min]++;
+ 
+    for (int i = 1; i < count.size(); i++)
+        count[i] += count[i - 1];
+ 
+    for (int i = loadedData.size() - 1; i >= 0; i--) {
+        output[count[loadedData[i] - min] - 1] = loadedData[i];
+        count[loadedData[i] - min]--;
+    }
+ 
+    for (int i = 0; i < loadedData.size(); i++)
+        loadedData[i] = output[i];
 }
 
 void File::saveFile() {
@@ -115,4 +180,3 @@ void File::saveFile() {
 	// Close the file
 	file.close();
 }
-
