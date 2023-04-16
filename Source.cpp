@@ -15,7 +15,7 @@
 #include <filesystem>
 #include "FilesReading.h"
 
-
+// probny komentarz
 
 using namespace std;
 namespace fs = std::filesystem;
