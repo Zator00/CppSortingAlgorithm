@@ -15,7 +15,7 @@
 #include <filesystem>
 #include "FilesReading.h"
 
-// probny komentarz
+#define REPEATS 5
 
 using namespace std;
 namespace fs = std::filesystem;
@@ -63,7 +63,6 @@ int main() {
 	File fileToMod(Fileinput, Filesave, Filealg, Filetime, Fileelements);
 
 	vector<double> sortTimes;
-	
 
 	stringstream ss(Fileelements);
 	vector<int> numsFile;
@@ -73,12 +72,11 @@ int main() {
     	numsFile.push_back(std::stoi(substr));
     }
 	vector<double> avgTimes;
-
 	if(fileToMod.algorithm == "bubble"){
 		for(int z=0; z<numsFile.size();z++ ){
 
 			if(z == 0){cout<<"Zmierzone i posortowane instancje: " << 0 << "/" << numsFile.size()<<endl;}
-			for(int i = 0; i<5;i++){
+			for(int i = 0; i<REPEATS;i++){
 				fileToMod.loadFile(z);
 
 				if (fileToMod.algorithm == "bubble") {
@@ -104,26 +102,39 @@ int main() {
 			double sumTime =0;
 			
 			for (int i = 0; i < sortTimes.size();i++){
+				
 				sumTime += sortTimes.at(i);
 			}
 			
 			avgTimes.push_back(sumTime/ (double)sortTimes.size());
 			sumTime = 0;
-			sortTimes.clear();
 			cout<<"Zmierzone i posortowane instancje: " << z+1 << "/" << numsFile.size()<<endl;
 		}
-
+		int iterator = 0;
+		int holder = 0;
 		ofstream file(Filetime);
+		for(int i = 0; i<sortTimes.size();i++){
+			
+			if(holder == REPEATS)
+			{
+				iterator++;
+				holder = 0;
+			}
+			file << "Bubble for "<< numsFile.at(iterator) << " elements - time: " << sortTimes.at(i) << "s" << endl;
+			holder++;
+		}
 		for(int i = 0; i < avgTimes.size();i++){
 			file << "Bubble for "<< numsFile.at(i) << " elements - avg time: " << avgTimes.at(i) << "s" << endl;
 		}
 		file.close();
+		sortTimes.clear();
+		
 	}
 	if(fileToMod.algorithm == "combsort"){
 			for(int z=0; z<numsFile.size();z++ ){
 
 			if(z == 0){cout<<"Zmierzone i posortowane instancje: " << 0 << "/" << numsFile.size()<<endl;}
-			for(int i = 0; i<5;i++){
+			for(int i = 0; i<REPEATS;i++){
 				fileToMod.loadFile(z);
 
 				if (fileToMod.algorithm == "combsort") {
@@ -153,23 +164,35 @@ int main() {
 			}
 			
 			avgTimes.push_back(sumTime/ (double)sortTimes.size());
-			sumTime = 0;
-			sortTimes.clear();
+			sumTime = 0;			
 			cout<<"Zmierzone i posortowane instancje: " << z+1 << "/" << numsFile.size()<<endl;
 		}
 
+		int iterator = 0;
+		int holder = 0;
 		ofstream file(Filetime);
+		for(int i = 0; i<sortTimes.size();i++){
+			
+			if(holder == REPEATS)
+			{
+				iterator++;
+				holder = 0;
+			}
+			file << "Combsort for "<< numsFile.at(iterator) << " elements - time: " << sortTimes.at(i) << "s" << endl;
+			holder++;
+		}
 		for(int i = 0; i < avgTimes.size();i++){
 			file << "Combsort for "<< numsFile.at(i) << " elements - avg time: " << avgTimes.at(i) << "s" << endl;
 		}
 		file.close();
+		sortTimes.clear();
 
 	}
 	if(fileToMod.algorithm == "counting"){
 			for(int z=0; z<numsFile.size();z++ ){
 
 			if(z == 0){cout<<"Zmierzone i posortowane instancje: " << 0 << "/" << numsFile.size()<<endl;}
-			for(int i = 0; i<5;i++){
+			for(int i = 0; i<REPEATS;i++){
 				fileToMod.loadFile(z);
 
 				if (fileToMod.algorithm == "counting") {
@@ -200,16 +223,27 @@ int main() {
 			
 			avgTimes.push_back(sumTime/ (double)sortTimes.size());
 			sumTime = 0;
-			sortTimes.clear();
 			cout<<"Zmierzone i posortowane instancje: " << z+1 << "/" << numsFile.size()<<endl;
 		}
 
+		int iterator = 0;
+		int holder = 0;
 		ofstream file(Filetime);
+		for(int i = 0; i<sortTimes.size();i++){
+			
+			if(holder == REPEATS)
+			{
+				iterator++;
+				holder = 0;
+			}
+			file << "Countingsort for "<< numsFile.at(iterator) << " elements - time: " << sortTimes.at(i) << "s" << endl;
+			holder++;
+		}
 		for(int i = 0; i < avgTimes.size();i++){
 			file << "Countingsort for "<< numsFile.at(i) << " elements - avg time: " << avgTimes.at(i) << "s" << endl;
 		}
 		file.close();
-
+		sortTimes.clear();
 	}
 
 	fileToMod.saveFile();

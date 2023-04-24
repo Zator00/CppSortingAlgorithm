@@ -1,3 +1,30 @@
-Combsort for 10000 elements - avg time: 0.00446388s
-Combsort for 20000 elements - avg time: 0.00971334s
-Combsort for 30000 elements - avg time: 0.0159518s
+Countingsort for 1000 elements - time: 0.00127s
+Countingsort for 1000 elements - time: 0.001497s
+Countingsort for 1000 elements - time: 0.001547s
+Countingsort for 1000 elements - time: 0.001502s
+Countingsort for 1000 elements - time: 0.001517s
+Countingsort for 2000 elements - time: 0.001548s
+Countingsort for 2000 elements - time: 0.00152s
+Countingsort for 2000 elements - time: 0.001583s
+Countingsort for 2000 elements - time: 0.001486s
+Countingsort for 2000 elements - time: 0.001497s
+Countingsort for 3000 elements - time: 0.001623s
+Countingsort for 3000 elements - time: 0.001648s
+Countingsort for 3000 elements - time: 0.001545s
+Countingsort for 3000 elements - time: 0.001638s
+Countingsort for 3000 elements - time: 0.001695s
+Countingsort for 5000 elements - time: 0.001841s
+Countingsort for 5000 elements - time: 0.001621s
+Countingsort for 5000 elements - time: 0.00173s
+Countingsort for 5000 elements - time: 0.001788s
+Countingsort for 5000 elements - time: 0.001806s
+Countingsort for 10000 elements - time: 0.002292s
+Countingsort for 10000 elements - time: 0.00213s
+Countingsort for 10000 elements - time: 0.002011s
+Countingsort for 10000 elements - time: 0.002109s
+Countingsort for 10000 elements - time: 0.00205s
+Countingsort for 1000 elements - avg time: 0.0014666s
+Countingsort for 2000 elements - avg time: 0.0014967s
+Countingsort for 3000 elements - avg time: 0.00154107s
+Countingsort for 5000 elements - avg time: 0.0015951s
+Countingsort for 10000 elements - avg time: 0.00169976s

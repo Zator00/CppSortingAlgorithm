@@ -5,7 +5,7 @@
 #include <sstream>
 #include <chrono>
 #include <stdio.h>
-#include <bits/stdc++.h>
+#include <algorithm>
 #include "FilesReading.h"
 
 using namespace std;
