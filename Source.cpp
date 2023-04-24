@@ -15,7 +15,7 @@
 #include <filesystem>
 #include "FilesReading.h"
 
-#define REPEATS 5
+#define REPEATS 10
 
 using namespace std;
 namespace fs = std::filesystem;
@@ -63,6 +63,7 @@ int main() {
 	File fileToMod(Fileinput, Filesave, Filealg, Filetime, Fileelements);
 
 	vector<double> sortTimes;
+	vector<double> allTimes;
 
 	stringstream ss(Fileelements);
 	vector<int> numsFile;
@@ -81,7 +82,7 @@ int main() {
 
 				if (fileToMod.algorithm == "bubble") {
 
-					if (z == numsFile.size()-1 && i==4){
+					if (z == numsFile.size()-1 && i==REPEATS-1){
 						auto begin = std::chrono::high_resolution_clock::now();
 						fileToMod.bubbleWithoutClear();
 						auto end = std::chrono::high_resolution_clock::now();
@@ -104,30 +105,32 @@ int main() {
 			for (int i = 0; i < sortTimes.size();i++){
 				
 				sumTime += sortTimes.at(i);
+				allTimes.push_back(sortTimes.at(i));
 			}
 			
 			avgTimes.push_back(sumTime/ (double)sortTimes.size());
 			sumTime = 0;
+			sortTimes.clear();
 			cout<<"Zmierzone i posortowane instancje: " << z+1 << "/" << numsFile.size()<<endl;
 		}
 		int iterator = 0;
 		int holder = 0;
 		ofstream file(Filetime);
-		for(int i = 0; i<sortTimes.size();i++){
+		for(int i = 0; i<allTimes.size();i++){
 			
 			if(holder == REPEATS)
 			{
 				iterator++;
 				holder = 0;
 			}
-			file << "Bubble for "<< numsFile.at(iterator) << " elements - time: " << sortTimes.at(i) << "s" << endl;
+			file << "Bubble for "<< numsFile.at(iterator) << " elements - time: " << allTimes.at(i) << "s" << endl;
 			holder++;
 		}
 		for(int i = 0; i < avgTimes.size();i++){
 			file << "Bubble for "<< numsFile.at(i) << " elements - avg time: " << avgTimes.at(i) << "s" << endl;
 		}
 		file.close();
-		sortTimes.clear();
+		allTimes.clear();
 		
 	}
 	if(fileToMod.algorithm == "combsort"){
@@ -139,7 +142,7 @@ int main() {
 
 				if (fileToMod.algorithm == "combsort") {
 
-					if (z == numsFile.size()-1 && i==4){
+					if (z == numsFile.size()-1 && i==REPEATS-1){
 						auto begin = std::chrono::high_resolution_clock::now();
 						fileToMod.combsortWithoutClear();
 						auto end = std::chrono::high_resolution_clock::now();
@@ -156,36 +159,37 @@ int main() {
 					
 				}				
 			}
-		
 			double sumTime =0;
 			
 			for (int i = 0; i < sortTimes.size();i++){
 				sumTime += sortTimes.at(i);
+				allTimes.push_back(sortTimes.at(i));
 			}
 			
 			avgTimes.push_back(sumTime/ (double)sortTimes.size());
 			sumTime = 0;			
+			sortTimes.clear();
 			cout<<"Zmierzone i posortowane instancje: " << z+1 << "/" << numsFile.size()<<endl;
 		}
 
 		int iterator = 0;
 		int holder = 0;
 		ofstream file(Filetime);
-		for(int i = 0; i<sortTimes.size();i++){
+		for(int i = 0; i<allTimes.size();i++){
 			
 			if(holder == REPEATS)
 			{
 				iterator++;
 				holder = 0;
 			}
-			file << "Combsort for "<< numsFile.at(iterator) << " elements - time: " << sortTimes.at(i) << "s" << endl;
+			file << "Combsort for "<< numsFile.at(iterator) << " elements - time: " << allTimes.at(i) << "s" << endl;
 			holder++;
 		}
 		for(int i = 0; i < avgTimes.size();i++){
 			file << "Combsort for "<< numsFile.at(i) << " elements - avg time: " << avgTimes.at(i) << "s" << endl;
 		}
 		file.close();
-		sortTimes.clear();
+		allTimes.clear();
 
 	}
 	if(fileToMod.algorithm == "counting"){
@@ -197,7 +201,7 @@ int main() {
 
 				if (fileToMod.algorithm == "counting") {
 
-					if (z == numsFile.size()-1 && i==4){
+					if (z == numsFile.size()-1 && i==REPEATS-1){
 						auto begin = std::chrono::high_resolution_clock::now();
 						fileToMod.countingsortWithoutClear();
 						auto end = std::chrono::high_resolution_clock::now();
@@ -219,31 +223,33 @@ int main() {
 			
 			for (int i = 0; i < sortTimes.size();i++){
 				sumTime += sortTimes.at(i);
+				allTimes.push_back(sortTimes.at(i));
 			}
 			
 			avgTimes.push_back(sumTime/ (double)sortTimes.size());
 			sumTime = 0;
+			sortTimes.clear();
 			cout<<"Zmierzone i posortowane instancje: " << z+1 << "/" << numsFile.size()<<endl;
 		}
 
 		int iterator = 0;
 		int holder = 0;
 		ofstream file(Filetime);
-		for(int i = 0; i<sortTimes.size();i++){
+		for(int i = 0; i<allTimes.size();i++){
 			
 			if(holder == REPEATS)
 			{
 				iterator++;
 				holder = 0;
 			}
-			file << "Countingsort for "<< numsFile.at(iterator) << " elements - time: " << sortTimes.at(i) << "s" << endl;
+			file << "Countingsort for "<< numsFile.at(iterator) << " elements - time: " << allTimes.at(i) << "s" << endl;
 			holder++;
 		}
 		for(int i = 0; i < avgTimes.size();i++){
 			file << "Countingsort for "<< numsFile.at(i) << " elements - avg time: " << avgTimes.at(i) << "s" << endl;
 		}
 		file.close();
-		sortTimes.clear();
+		allTimes.clear();
 	}
 
 	fileToMod.saveFile();

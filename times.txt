@@ -1,30 +1,88 @@
-Countingsort for 1000 elements - time: 0.00127s
-Countingsort for 1000 elements - time: 0.001497s
-Countingsort for 1000 elements - time: 0.001547s
-Countingsort for 1000 elements - time: 0.001502s
-Countingsort for 1000 elements - time: 0.001517s
-Countingsort for 2000 elements - time: 0.001548s
-Countingsort for 2000 elements - time: 0.00152s
-Countingsort for 2000 elements - time: 0.001583s
-Countingsort for 2000 elements - time: 0.001486s
-Countingsort for 2000 elements - time: 0.001497s
-Countingsort for 3000 elements - time: 0.001623s
-Countingsort for 3000 elements - time: 0.001648s
-Countingsort for 3000 elements - time: 0.001545s
-Countingsort for 3000 elements - time: 0.001638s
-Countingsort for 3000 elements - time: 0.001695s
-Countingsort for 5000 elements - time: 0.001841s
-Countingsort for 5000 elements - time: 0.001621s
-Countingsort for 5000 elements - time: 0.00173s
-Countingsort for 5000 elements - time: 0.001788s
-Countingsort for 5000 elements - time: 0.001806s
-Countingsort for 10000 elements - time: 0.002292s
-Countingsort for 10000 elements - time: 0.00213s
-Countingsort for 10000 elements - time: 0.002011s
-Countingsort for 10000 elements - time: 0.002109s
-Countingsort for 10000 elements - time: 0.00205s
-Countingsort for 1000 elements - avg time: 0.0014666s
-Countingsort for 2000 elements - avg time: 0.0014967s
-Countingsort for 3000 elements - avg time: 0.00154107s
-Countingsort for 5000 elements - avg time: 0.0015951s
-Countingsort for 10000 elements - avg time: 0.00169976s
+Combsort for 12000 elements - time: 0.004993s
+Combsort for 12000 elements - time: 0.006058s
+Combsort for 12000 elements - time: 0.004873s
+Combsort for 12000 elements - time: 0.004877s
+Combsort for 12000 elements - time: 0.005767s
+Combsort for 12000 elements - time: 0.005548s
+Combsort for 12000 elements - time: 0.005779s
+Combsort for 12000 elements - time: 0.004849s
+Combsort for 12000 elements - time: 0.005121s
+Combsort for 12000 elements - time: 0.005837s
+Combsort for 15000 elements - time: 0.006923s
+Combsort for 15000 elements - time: 0.006496s
+Combsort for 15000 elements - time: 0.007344s
+Combsort for 15000 elements - time: 0.00749s
+Combsort for 15000 elements - time: 0.007139s
+Combsort for 15000 elements - time: 0.007331s
+Combsort for 15000 elements - time: 0.008139s
+Combsort for 15000 elements - time: 0.009352s
+Combsort for 15000 elements - time: 0.007142s
+Combsort for 15000 elements - time: 0.008832s
+Combsort for 17000 elements - time: 0.00792s
+Combsort for 17000 elements - time: 0.010275s
+Combsort for 17000 elements - time: 0.007748s
+Combsort for 17000 elements - time: 0.007849s
+Combsort for 17000 elements - time: 0.007042s
+Combsort for 17000 elements - time: 0.008486s
+Combsort for 17000 elements - time: 0.008132s
+Combsort for 17000 elements - time: 0.008543s
+Combsort for 17000 elements - time: 0.007834s
+Combsort for 17000 elements - time: 0.009721s
+Combsort for 20000 elements - time: 0.008665s
+Combsort for 20000 elements - time: 0.008994s
+Combsort for 20000 elements - time: 0.009478s
+Combsort for 20000 elements - time: 0.010011s
+Combsort for 20000 elements - time: 0.011755s
+Combsort for 20000 elements - time: 0.010319s
+Combsort for 20000 elements - time: 0.009748s
+Combsort for 20000 elements - time: 0.00943s
+Combsort for 20000 elements - time: 0.009462s
+Combsort for 20000 elements - time: 0.009444s
+Combsort for 30000 elements - time: 0.015887s
+Combsort for 30000 elements - time: 0.01553s
+Combsort for 30000 elements - time: 0.015855s
+Combsort for 30000 elements - time: 0.014569s
+Combsort for 30000 elements - time: 0.014753s
+Combsort for 30000 elements - time: 0.014619s
+Combsort for 30000 elements - time: 0.014871s
+Combsort for 30000 elements - time: 0.014769s
+Combsort for 30000 elements - time: 0.015199s
+Combsort for 30000 elements - time: 0.014464s
+Combsort for 40000 elements - time: 0.020668s
+Combsort for 40000 elements - time: 0.020456s
+Combsort for 40000 elements - time: 0.020593s
+Combsort for 40000 elements - time: 0.021327s
+Combsort for 40000 elements - time: 0.019794s
+Combsort for 40000 elements - time: 0.020543s
+Combsort for 40000 elements - time: 0.020252s
+Combsort for 40000 elements - time: 0.020822s
+Combsort for 40000 elements - time: 0.020209s
+Combsort for 40000 elements - time: 0.020908s
+Combsort for 50000 elements - time: 0.026251s
+Combsort for 50000 elements - time: 0.026423s
+Combsort for 50000 elements - time: 0.02601s
+Combsort for 50000 elements - time: 0.026251s
+Combsort for 50000 elements - time: 0.026119s
+Combsort for 50000 elements - time: 0.0262s
+Combsort for 50000 elements - time: 0.026837s
+Combsort for 50000 elements - time: 0.026632s
+Combsort for 50000 elements - time: 0.025898s
+Combsort for 50000 elements - time: 0.027037s
+Combsort for 75000 elements - time: 0.041982s
+Combsort for 75000 elements - time: 0.040771s
+Combsort for 75000 elements - time: 0.040139s
+Combsort for 75000 elements - time: 0.046698s
+Combsort for 75000 elements - time: 0.041776s
+Combsort for 75000 elements - time: 0.040213s
+Combsort for 75000 elements - time: 0.042219s
+Combsort for 75000 elements - time: 0.0472s
+Combsort for 75000 elements - time: 0.041783s
+Combsort for 75000 elements - time: 0.039651s
+Combsort for 12000 elements - avg time: 0.0053702s
+Combsort for 15000 elements - avg time: 0.0076188s
+Combsort for 17000 elements - avg time: 0.008355s
+Combsort for 20000 elements - avg time: 0.0097306s
+Combsort for 30000 elements - avg time: 0.0150516s
+Combsort for 40000 elements - avg time: 0.0205572s
+Combsort for 50000 elements - avg time: 0.0263658s
+Combsort for 75000 elements - avg time: 0.0422432s
