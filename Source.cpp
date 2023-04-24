@@ -253,6 +253,18 @@ int main() {
 	}
 
 	fileToMod.saveFile();
+	char choice;
+	cout << "Czy wyswietlic posortowane liczby? (Ostatnia instancja) t/n \n";
+	cin >> choice;
+	switch(choice){
+		case 't':{
+			fileToMod.showSortedData();
+			break;
+		}
+		default:{
+			break;
+		}
+	}
 
 	return 0;
 }

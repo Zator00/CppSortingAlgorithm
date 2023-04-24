@@ -180,3 +180,9 @@ void File::saveFile() {
 	// Close the file
 	file.close();
 }
+
+void File::showSortedData(){
+    for (auto i: loadedData){
+        cout << i << ',';
+    }     
+}

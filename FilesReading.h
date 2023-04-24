@@ -14,6 +14,7 @@ public:
 	}
 	void loadFile(int iterator);
 	void saveFile();
+	void showSortedData();
 	void bubble();
 	void bubbleWithoutClear();
 	void combsort();
